@@ -10,8 +10,8 @@ const contentWrapper = document.querySelector('.wrapper')
 const wrap = document.querySelector('.cards_wrap')
 const hover = document.querySelector('.hover')
 
-const clone = wrap.cloneNode(true)
-contentWrapper.appendChild(clone)
+// const clone = wrap.cloneNode(true)
+// contentWrapper.appendChild(clone)
 
 window.addEventListener('wheel', (e) => {
   speed -= e.deltaY * 0.03
@@ -24,7 +24,7 @@ hover.addEventListener('mouseenter', (e) => {
     width: '10vw',
     height: '15vh',
     duration: 1,
-    ease: 'power3.out'
+    ease: 'power3.out',
   })
 })
 hover.addEventListener('mouseleave', (e) => {
@@ -39,14 +39,13 @@ hover.addEventListener('mouseleave', (e) => {
 })
 
 function raf() {
-
   position += speed
   speed *= 0.97
 
   const height = wrap.scrollHeight
 
-  if (position <= -height) position += height
-  if (position >= 0) position -= height
+  // if (position <= -height) position += height
+  // if (position >= 0) position -= height
 
   contentWrapper.style.transform = `translateY(${isHover ? position / 2 : position}px)`
   requestAnimationFrame(raf)
