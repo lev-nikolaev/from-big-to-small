@@ -4,6 +4,9 @@ import gsap from "gsap";
 
 const ITEMS_COUNT = 20;
 
+const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
+
+
 let speed = 0;
 let position = 0;
 let height = 0;
@@ -50,8 +53,6 @@ function getCardsHeight() {
     fullHeight: Array.from(cards).reduce((sum, card) => sum + card.offsetHeight, 0),
   }
 }
-
-const lerp = (start, end, amt) => (1 - amt) * start + amt * end;
 
 function raf() {
   position += speed;
